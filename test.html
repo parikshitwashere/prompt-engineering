@@ -1,36 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            text-align: center;
-            padding: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jodhpur – The Blue City of Rajasthan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#1B3A73; --indigo-deep:#0F2147; --wash:#5C8BD0; --sand:#C98A4B; --saffron:#E8A33D;
+  --bg:#F6F4EE; --surface:#FFFFFF; --text:#1D2433; --muted:#566074; --line:#DAD6CA;
+  --serif:'Rozha One',Georgia,'Times New Roman',serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1630;--surface:#16213F;--text:#E8ECF5;--muted:#A5B0C8;--line:#2A3760;--indigo:#7FA6E6;}
+}
+:root[data-theme="dark"]{--bg:#0E1630;--surface:#16213F;--text:#E8ECF5;--muted:#A5B0C8;--line:#2A3760;--indigo:#7FA6E6;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+/* nav */
+.nav{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;padding:18px 0}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-family:var(--serif);color:#fff;font-size:1.3rem;text-decoration:none}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap}
+.nav a.l{color:#DCE6F8;text-decoration:none;font-weight:500;font-size:.95rem}
+.nav a.l:hover{color:#fff;text-decoration:underline}
+
+/* hero */
+.hero{position:relative;background:linear-gradient(180deg,#0F2147 0%,#1B3A73 55%,#3F69B3 100%);color:#fff;padding:150px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(2.8rem,9vw,6rem);max-width:12ch}
+.hero p{max-width:46ch;color:#D5E1F7;font-size:1.15rem;margin:22px 0 28px}
+.btn{display:inline-block;background:var(--saffron);color:#2A1B05;font-weight:700;padding:13px 24px;border-radius:999px;text-decoration:none}
+.btn:hover{background:#F2B659}
+.sun{position:absolute;right:9%;top:120px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#FFD58A 0%,#E8A33D 60%,rgba(232,163,61,0) 72%);opacity:.9}
+.skyline{display:block;width:100%;height:auto;margin-top:34px}
+
+/* sections */
+section{padding:84px 0}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start}
+.intro h2{font-size:clamp(2rem,5vw,3rem);color:var(--indigo)}
+.intro p{margin:0 0 16px;color:var(--text)}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.facts div{background:var(--surface);padding:16px 18px}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:1.35rem;color:var(--indigo)}
+.facts span{font-size:.9rem;color:var(--muted)}
+
+.sec-title{font-size:clamp(2rem,5vw,3rem);color:var(--indigo);margin-bottom:10px}
+.sec-sub{color:var(--muted);max-width:56ch;margin:0 0 40px}
+
+/* places */
+.place{display:grid;grid-template-columns:200px 1fr;gap:30px;padding:30px 0;border-top:1px solid var(--line)}
+.place:last-child{border-bottom:1px solid var(--line)}
+.swatch{height:150px;border-radius:4px 4px 90px 4px;position:relative;overflow:hidden}
+.swatch svg{position:absolute;inset:0;width:100%;height:100%}
+.place h3{font-size:1.7rem;margin-bottom:8px}
+.place p{margin:0 0 10px;max-width:60ch}
+.tag{font-size:.88rem;color:var(--muted)}
+
+/* band: food */
+.band{background:var(--indigo-deep);color:#EAF0FB}
+.band .sec-title{color:#fff}
+.band .sec-sub{color:#B9C8E6}
+.food{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px}
+.food h3{font-size:1.45rem;color:var(--saffron);margin-bottom:6px}
+.food p{margin:0;color:#D5E0F4;font-size:.98rem}
+
+/* planner */
+.tabs{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:700;border:2px solid var(--indigo);background:transparent;color:var(--indigo);padding:9px 20px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--indigo);color:#fff}
+:root[data-theme="dark"] .tabs button[aria-selected="true"]{color:#0E1630}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{color:#0E1630}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:8px 26px}
+.plan li{list-style:none;display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.plan li:last-child{border-bottom:0}
+.plan ul{margin:0;padding:0}
+.plan .t{font-weight:700;color:var(--sand)}
+.plan[hidden]{display:none}
+
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;margin-top:10px}
+.tips h3{font-size:1.3rem;color:var(--indigo);margin-bottom:6px}
+.tips p{margin:0;color:var(--muted);font-size:.98rem}
+
+footer{background:var(--indigo-deep);color:#B9C8E6;padding:34px 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .intro{grid-template-columns:1fr;gap:30px}
+  .place{grid-template-columns:1fr;gap:16px}
+  .swatch{height:110px}
+  .plan li{grid-template-columns:1fr;gap:2px}
+  .sun{width:70px;height:70px;right:6%;top:150px}
+  section{padding:60px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
-    <h1>Welcome to My Website</h1>
-    <p>This is a small, simple HTML program running.</p>
-    
-    <button onclick="alert('Hello! Thanks for clicking.')">Click Me!</button>
+<header class="hero">
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="logo" href="#top">Jodhpur</a>
+      <ul>
+        <li><a class="l" href="#about">About</a></li>
+        <li><a class="l" href="#places">Places</a></li>
+        <li><a class="l" href="#food">Food</a></li>
+        <li><a class="l" href="#plan">Plan a trip</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap" id="top">
+    <h1>Jodhpur, the Blue City</h1>
+    <p>A fort on a cliff, a maze of indigo-washed houses below it, and the Thar Desert beyond. Here is what to see, eat and plan.</p>
+    <a class="btn" href="#plan">Plan your days</a>
+  </div>
+  <svg class="skyline" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Illustration of Mehrangarh Fort above the blue houses of Jodhpur">
+    <path d="M0 140 L120 125 L260 135 L380 100 L470 110 L520 70 L560 70 L575 55 L610 55 L625 70 L690 70 L720 95 L800 105 L900 125 L1040 130 L1200 120 V260 H0Z" fill="#0B1A3A"/>
+    <rect x="500" y="72" width="210" height="60" fill="#0B1A3A"/>
+    <g fill="#0B1A3A"><rect x="515" y="52" width="14" height="22"/><rect x="545" y="44" width="14" height="30"/><rect x="590" y="40" width="18" height="34"/><rect x="640" y="50" width="14" height="24"/><rect x="680" y="56" width="14" height="18"/></g>
+    <g fill="#7FA6E6"><rect x="0" y="170" width="70" height="90"/><rect x="62" y="150" width="90" height="110"/><rect x="146" y="178" width="70" height="82"/><rect x="210" y="158" width="100" height="102"/><rect x="304" y="182" width="80" height="78"/></g>
+    <g fill="#5C8BD0"><rect x="380" y="160" width="90" height="100"/><rect x="464" y="140" width="110" height="120"/><rect x="568" y="164" width="80" height="96"/><rect x="642" y="146" width="100" height="114"/><rect x="736" y="172" width="80" height="88"/></g>
+    <g fill="#A9C4EE"><rect x="810" y="152" width="90" height="108"/><rect x="894" y="176" width="70" height="84"/><rect x="958" y="156" width="100" height="104"/><rect x="1052" y="180" width="80" height="80"/><rect x="1126" y="162" width="80" height="98"/></g>
+    <g fill="#0F2147" opacity=".75"><rect x="90" y="190" width="14" height="22"/><rect x="236" y="198" width="14" height="22"/><rect x="500" y="170" width="14" height="22"/><rect x="520" y="210" width="14" height="22"/><rect x="680" y="176" width="14" height="22"/><rect x="842" y="182" width="14" height="22"/><rect x="990" y="186" width="14" height="22"/></g>
+    <rect x="0" y="240" width="1200" height="20" fill="#F6F4EE" class="ground"/>
+  </svg>
+</header>
 
+<main>
+  <section id="about">
+    <div class="wrap intro">
+      <div>
+        <h2>The gateway to the Thar</h2>
+        <p>Rao Jodha founded Jodhpur in 1459 as the capital of the Marwar kingdom. He built his fort on a rocky ridge that rises sharply from the plain, and the city grew in the shadow of its walls.</p>
+        <p>Many of the old-city houses are painted a soft indigo. Locals say the colour helps keep homes cool and keeps insects away, and it was once linked with Brahmin households. Today it is simply what makes the view from the fort so recognisable.</p>
+        <p>Jodhpur is the second-largest city in Rajasthan, and a good base for desert villages, lakes and temples.</p>
+      </div>
+      <div class="facts">
+        <div><b>1459</b><span>Year the city was founded</span></div>
+        <div><b>Marwar</b><span>Historic kingdom and region</span></div>
+        <div><b>Oct–Mar</b><span>Most comfortable months</span></div>
+        <div><b>Hindi, Marwari</b><span>Widely spoken languages</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="places" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="sec-title">Places worth your time</h2>
+      <p class="sec-sub">Start with the fort, then mix palaces, gardens and the old bazaar.</p>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#1B3A73,#5C8BD0)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M0 150V95l30-10 20-30h30l15-18h30l15 18h30l30 20v75z" fill="#0F2147" opacity=".55"/></svg></div>
+        <div>
+          <h3>Mehrangarh Fort</h3>
+          <p>One of the largest forts in India, standing on a cliff high above the city. Inside are palace courtyards, carved jharokha windows, a museum of howdahs, palanquins and weapons, and ramparts lined with old cannons. Take the audio guide and walk the walls for the best views of the blue houses.</p>
+          <span class="tag">Allow 3 hours. Go at opening time to avoid crowds and heat.</span>
+        </div>
+      </article>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#F2E7CE,#E3C98C)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M60 150V80h80v70zM50 80l50-40 50 40z" fill="#fff" opacity=".8"/></svg></div>
+        <div>
+          <h3>Jaswant Thada</h3>
+          <p>A white marble memorial built in 1899 for Maharaja Jaswant Singh II. The thin marble panels glow when light passes through them, and the lawns around it are quiet compared with the fort.</p>
+          <span class="tag">Short visit, about 45 minutes. Often combined with the fort.</span>
+        </div>
+      </article>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#C98A4B,#8E5A2B)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M40 150V70h120v80zM85 70c0-30 30-30 30 0z" fill="#F6E3C4" opacity=".7"/></svg></div>
+        <div>
+          <h3>Umaid Bhawan Palace</h3>
+          <p>A sandstone and marble palace completed in 1943, now part royal residence, part luxury hotel and part museum. The museum section shows royal photographs, clocks and a collection of vintage cars.</p>
+          <span class="tag">Museum open to visitors. Check timings before you go.</span>
+        </div>
+      </article>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#3C6B4F,#8FB58A)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M20 150c0-40 20-60 40-60s30 20 40 20 30-30 50-30 30 30 30 70z" fill="#1E3B2A" opacity=".5"/></svg></div>
+        <div>
+          <h3>Mandore Gardens</h3>
+          <p>Mandore was the capital of Marwar before Jodhpur. Today its terraced gardens hold red sandstone cenotaphs of past rulers, a shaded place to walk in the afternoon.</p>
+          <span class="tag">About 9 km north of the city centre.</span>
+        </div>
+      </article>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#7A3E5A,#D98A8A)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M90 150V60h20v90zM70 60h60l-10-20H80z" fill="#FBE3D0" opacity=".7"/></svg></div>
+        <div>
+          <h3>Clock Tower and Sardar Market</h3>
+          <p>The Ghanta Ghar is the centre of old-town life. Around it, Sardar Market sells spices, textiles, bandhani scarves, silver and Rajasthani juttis. Bargain politely and compare prices between stalls.</p>
+          <span class="tag">Best in the evening. Many shops close on Sundays.</span>
+        </div>
+      </article>
+
+      <article class="place">
+        <div class="swatch" style="background:linear-gradient(135deg,#0F2147,#2E6F8E)"><svg viewBox="0 0 200 150" aria-hidden="true"><path d="M40 60h120v90H40zM60 80h80v70H60zM80 100h40v50H80z" fill="#9CC4DA" opacity=".45"/></svg></div>
+        <div>
+          <h3>Toorji Ka Jhalra</h3>
+          <p>An 18th-century stepwell near the clock tower, restored and surrounded by cafés. Its symmetrical stone steps make a good photo stop.</p>
+          <span class="tag">Light is best in the morning.</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="food" class="band">
+    <div class="wrap">
+      <h2 class="sec-title">What to eat</h2>
+      <p class="sec-sub">Jodhpur food is rich, spicy and often fried. Pair it with something sweet or cool.</p>
+      <div class="food">
+        <div><h3>Mirchi bada</h3><p>A large green chilli stuffed with spiced potato, dipped in gram flour batter and fried. Eat it hot, usually with chutney.</p></div>
+        <div><h3>Pyaaz and mawa kachori</h3><p>Flaky fried pastry with an onion filling, or a sweet version stuffed with milk solids and soaked in syrup.</p></div>
+        <div><h3>Makhaniya lassi</h3><p>A thick, saffron-flavoured lassi topped with cream. Famous near the clock tower and very filling.</p></div>
+        <div><h3>Laal maas and ker sangri</h3><p>A fiery mutton curry and a desert bean and berry dish. Ask for a milder version if you are not used to chilli.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <h2 class="sec-title">Plan your visit</h2>
+      <p class="sec-sub">Pick how many days you have. Timings are suggestions, so adjust them to your pace.</p>
+
+      <div class="tabs" role="tablist" aria-label="Trip length">
+        <button role="tab" id="tab1" aria-selected="true" aria-controls="p1">1 day</button>
+        <button role="tab" id="tab2" aria-selected="false" aria-controls="p2">2 days</button>
+        <button role="tab" id="tab3" aria-selected="false" aria-controls="p3">3 days</button>
+      </div>
+
+      <div class="plan" id="p1" role="tabpanel" aria-labelledby="tab1"><ul>
+        <li><span class="t">Morning</span><span>Mehrangarh Fort, then Jaswant Thada.</span></li>
+        <li><span class="t">Afternoon</span><span>Lunch in the old city, then Toorji Ka Jhalra and a walk through the blue lanes.</span></li>
+        <li><span class="t">Evening</span><span>Sardar Market, then makhaniya lassi near the clock tower.</span></li>
+      </ul></div>
+
+      <div class="plan" id="p2" role="tabpanel" aria-labelledby="tab2" hidden><ul>
+        <li><span class="t">Day 1</span><span>Everything in the 1-day plan, at a slower pace.</span></li>
+        <li><span class="t">Day 2 morning</span><span>Umaid Bhawan Palace museum.</span></li>
+        <li><span class="t">Day 2 afternoon</span><span>Mandore Gardens, then sunset at a rooftop café facing the fort.</span></li>
+      </ul></div>
+
+      <div class="plan" id="p3" role="tabpanel" aria-labelledby="tab3" hidden><ul>
+        <li><span class="t">Days 1–2</span><span>Follow the 2-day plan.</span></li>
+        <li><span class="t">Day 3 morning</span><span>Take a village safari to see Bishnoi communities, pottery and weaving.</span></li>
+        <li><span class="t">Day 3 afternoon</span><span>Return for a relaxed walk around Gulab Sagar and last-minute shopping.</span></li>
+      </ul></div>
+
+      <div class="tips" style="margin-top:56px">
+        <div><h3>Best time</h3><p>October to March has mild days. Summers regularly pass 40°C, so plan sightseeing for early morning.</p></div>
+        <div><h3>Getting around</h3><p>Autos and cabs work well in the city. The old town is best explored on foot.</p></div>
+        <div><h3>Dress and etiquette</h3><p>Wear comfortable shoes and light, covering clothes. Remove footwear at temples.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Jodhpur, Rajasthan, India</span>
+    <span>Check opening hours and ticket prices before you travel.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('[role="tab"]');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(t){
+        var on=t===tab;
+        t.setAttribute('aria-selected',on?'true':'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
