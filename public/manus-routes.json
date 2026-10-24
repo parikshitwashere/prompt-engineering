@@ -1,0 +1,1 @@
+{"routes":[{"path":"/","title":"Welcome to JIET Community"},{"path":"/home","title":"Home"},{"path":"/explore","title":"Explore activities"},{"path":"/publish","title":"Publish"},{"path":"/dashboard","title":"My dashboard"},{"path":"/profile","title":"My profile"},{"path":"/activities/:id","title":"Activity details"}]}
